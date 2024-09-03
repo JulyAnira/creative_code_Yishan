@@ -1,3 +1,6 @@
+let pos;
+let vel;
+
 function setup() {
     createCanvas(windowWidth,windowHeight);
   }
@@ -5,6 +8,8 @@ function setup() {
     resizeCanvas(windowWidth,windowHeight);
     background(123,43,23);
   }  
+
+
   function draw() {
   let colors = [
     color(240, 174, 174),
@@ -12,7 +17,7 @@ function setup() {
     color(198, 43, 79),
   ] 
   setBackground(colors);
-
+  }
     function setBackground(colors){
       for (let y = 0; y < height; y++) {
         //ps: colors.length - 1 is the last number of array
@@ -26,7 +31,7 @@ function setup() {
         let inter = interColorIndex - colorIndex;
         /*inter 是一个在 [0, 1] 范围内的小数，
         用于表示当前行颜色在两个相邻颜色之间的渐变程度*/
-        
+
 
         //Used to define the color transition range for the current row
         let startColor = colors[colorIndex];
@@ -40,4 +45,13 @@ function setup() {
 
     }
   }
-}
+
+  pos = createVector(50, 100);
+  vel = createVector(0, -1);
+  function drawVector(){
+    pos.add(vel);//necessary, renew the position
+  }
+  //IMAGES
+  function drawImage(x, y, w, [h]){
+
+  }
