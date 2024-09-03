@@ -1,5 +1,10 @@
 let pos;
 let vel;
+let flyingimg;
+
+function preload(){
+  img = loadImage(path, [successCallback], [failureCallback]);
+}
 
 function setup() {
     createCanvas(windowWidth,windowHeight);
@@ -48,10 +53,13 @@ function setup() {
 
   pos = createVector(50, 100);
   vel = createVector(0, -1);
+
   function drawVector(){
     pos.add(vel);//necessary, renew the position
   }
-  //IMAGES
-  function drawImage(x, y, w, [h]){
-
+  drawImage(pos.x, pos.y);
+  //Strawberry Img 1
+  function drawImage(x, y){
+    imageMode(CENTER);
+    image = (flyingimg, x, y, 50, 50)
   }
