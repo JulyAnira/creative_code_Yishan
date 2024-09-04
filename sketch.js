@@ -56,14 +56,14 @@ function setup() {
   drawImage(pos2.x, pos2.y);
 
   // Boundary detection (under)
-    if (pos.x > width/2 || pos.x < 0) {
+    if (pos.x > width-50 || pos.x < 0) {
       vel.x *= -1;
     }
     if (pos.y > height - 50 || pos.y < 0) {
       vel.y *= -1;
     }
 
-    if (pos2.x > width/2 || pos2.x < 0) {
+    if (pos2.x > width-50 || pos2.x < 0) {
       vel2.x *= -1;
     }
     if (pos2.y > height - 50 || pos2.y < 0) {
