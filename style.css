@@ -6,6 +6,15 @@ canvas{
     top: 0;
     z-index: -1;
 }
+
+nav {
+
+}
+
+a {
+    font-family: "Expletus Sans", sans-serif;
+}
+
 .expletus-sans-title {
     font-family: "Expletus Sans", sans-serif;
     font-optical-sizing: auto;
