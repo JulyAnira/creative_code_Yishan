@@ -1,6 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 canvas{
     position: fixed;
     left: 0;
     top: 0;
     z-index: -1;
+}
+.expletus-sans-title {
+    font-family: "Expletus Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: clamp(7rem, 2rem + 10vmin, 25rem);
+    letter-spacing: 13px;
+    color: rgb(255, 255, 255);
+    opacity: 0.9;
+    max-width: 40rem;
+    text-shadow: 4px 4px rgb(82, 55, 116);
 }
