@@ -2,7 +2,6 @@ let pos;
 let vel;
 let pos2;
 let vel2;
-let gridSize = 50; 
 let dotSize = 20;
 let timeOffset = 0; 
 
@@ -39,8 +38,8 @@ function setup() {
 
   timeOffset += 0.05;//This is the speed of background dots
   //'+=' is add AND save
-  for(let x = 0; x < width; x += gridSize){
-    for(let y = 0; y < height; y += gridSize){
+  for(let x = 0; x < width; x += 50){
+    for(let y = 0; y < height; y += 50){
       let r = map (sin(timeOffset + (x + y) * 0.1), -1, 1, 53, 195)
       let g = map (sin(timeOffset + (x + y) * 0.1), -1, 1, 42, 189)
       let b = map (sin(timeOffset + (x + y) * 0.1), -1, 1, 97, 222)
