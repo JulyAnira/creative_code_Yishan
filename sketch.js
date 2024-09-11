@@ -98,9 +98,9 @@ function setup() {
       let img = d < mousetopicDistance ? img2 : img1;
       push();
       if (this.x < windowWidth/2){
-       translate(this.x + img.width / 2, this.y);
+        translate(this.x + this.x/ 2, this.y);
         scale(-1,1);
-        image(img, -img.width / 2, 0);
+        image(img, this.x / 2, 0);
       }
       else{
       image(img, this.x, this.y);
@@ -127,13 +127,13 @@ function setup() {
       if (this.x < mouseX){
         this.x = this.x+6;
       }
-      else if (this.x > mouseX){
+      if (this.x > mouseX){
         this.x = this.x-6;
       }
-      else if (this.y < mouseY){
+      if (this.y < mouseY){
         this.y = this.y+6;
       }
-      else {
+      if (this.y > mouseY){
         this.y = this.y-6;
       }
     }
