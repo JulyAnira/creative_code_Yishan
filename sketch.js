@@ -5,13 +5,20 @@ let vel2;
 let dotSize = 20;
 let timeOffset = 0; 
 
+let w;
+let img1;
+let mousetopicDistance = 100;
+
 
 function preload(){
   flyingimg = loadImage('./p1.PNG');
+  img1 = loadImage('IMG_2979.PNG');
+  img2 = loadImage('IMG_2978.PNG');
 }
 
 function setup() {
     createCanvas(windowWidth,windowHeight);
+    w = new Walker();
     pos = createVector(random(width), random(height));
     vel = createVector(random(-3, 3), random(-3, 3));
     pos2 = createVector(random(width), random(height));
@@ -56,19 +63,80 @@ function setup() {
   drawImage(pos2.x, pos2.y);
 
   // Boundary detection (under)
-    if (pos.x > width-50 || pos.x < 0) {
+    if (pos.x > windowWidth-50 || pos.x < 0) {
       vel.x *= -1;
     }
-    if (pos.y > height - 50 || pos.y < 0) {
+    if (pos.y > windowHeight - 50 || pos.y < 0) {
       vel.y *= -1;
     }
 
-    if (pos2.x > width-50 || pos2.x < 0) {
+    if (pos2.x > windowWidth-50 || pos2.x < 0) {
       vel2.x *= -1;
     }
-    if (pos2.y > height - 50 || pos2.y < 0) {
+    if (pos2.y > windowHeight - 50 || pos2.y < 0) {
       vel2.y *= -1;
     }
+
+    w.display();
+    w.step();
+    w.stepMouse();
+  if (mouseIsPressed === true) {
+      frameRate(10);
+    } else {
+      frameRate(60);
+    }
+  }
+  
+  class Walker{
+    constructor(){
+      this.x = width/2;
+      this.y = height/2;
+    }
+    display(){
+      let d = dist(this.x, this.y, mouseX, mouseY);
+      let img = d < mousetopicDistance ? img2 : img1;
+      push();
+      if (this.x < windowWidth/2){
+       translate(this.x + img.width / 2, this.y);
+        scale(-1,1);
+        image(img, -img.width / 2, 0);
+      }
+      else{
+      image(img, this.x, this.y);
+      }
+      pop();
+  }
+    step(){
+      let choice = floor(random (4));
+      if (choice == 0){
+        this.x = this.x+5;
+      }
+      else if (choice ==1){
+        this.x = this.x-5;
+      }
+      else if (choice ==2){
+        this.y = this.y+5;
+      }
+      else {
+        this.y = this.y-5;
+      }
+    }
+    
+    stepMouse(){
+      if (this.x < mouseX){
+        this.x = this.x+6;
+      }
+      else if (this.x > mouseX){
+        this.x = this.x-6;
+      }
+      else if (this.y < mouseY){
+        this.y = this.y+6;
+      }
+      else {
+        this.y = this.y-6;
+      }
+    }
+  
   }
     function setBackground(colors){
       for (let y = 0; y < height; y++) {

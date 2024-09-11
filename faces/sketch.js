@@ -2,7 +2,7 @@ let f;
 //let speed;
 function setup() {
   createCanvas(windowWidth/2, windowHeight/2);
-  background(220)
+  background(255, 52, 153)
   
  // f = new Face();
 //  speed = 4;
