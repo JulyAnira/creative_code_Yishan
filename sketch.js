@@ -76,10 +76,11 @@ function setup() {
     if (pos2.y > windowHeight - 50 || pos2.y < 0) {
       vel2.y *= -1;
     }
-
-    w.display();
     w.step();
     w.stepMouse();
+    w.display();
+    
+    
   if (mouseIsPressed === true) {
       frameRate(10);
     } else {
