@@ -9,15 +9,15 @@ canvas {
 .expletus-sans-title {
     font-family: "Expletus Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 700;
+    font-weight: 400;
     font-style: bold;
-    font-size: clamp(7rem, 2rem + 10vmin, 25rem);
+    font-size: clamp(2rem, 2rem + 5vmin, 10rem);
     letter-spacing: 13px;
     color: rgb(255, 255, 255);
     opacity: 0.9;
     max-width: 40rem;
     margin-top: 1.5rem; 
-    text-align: center;
+    text-align: right;
     text-shadow: 0 0 10px rgba(255, 186, 211, 0.6);
     
 }

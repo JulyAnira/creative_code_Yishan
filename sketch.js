@@ -4,16 +4,23 @@ let pos2;
 let vel2;
 let dotSize = 20;
 let timeOffset = 0; 
+let audio1;
+
+let p;
+let particles = [];
 
 let w;
 let img1;
 let mousetopicDistance = 100;
+let imgP;
 
 
 function preload(){
   flyingimg = loadImage('./p1.PNG');
   img1 = loadImage('IMG_2979.PNG');
   img2 = loadImage('IMG_2978.PNG');
+  imgP = loadImage('strawberry1.PNG');
+  audio1 = loadSound('BounceYoFrankie.wav');
 }
 
 function setup() {
@@ -27,7 +34,14 @@ function setup() {
     noStroke();
     //noLoop();
 
+    for (let i = 0; i < 30; i++){
+      let p = new Particle();
+      particles.push(p);
+    }
+  
   }
+
+  
   function windowResized(){
     resizeCanvas(windowWidth,windowHeight);
     background(255,255,255);
@@ -86,6 +100,21 @@ function setup() {
     } else {
       frameRate(60);
     }
+
+    for (let i = 0; i < particles.length; i++){
+    
+      let currentParticle = particles[i];
+      currentParticle.update();
+      currentParticle.checkWalls();
+      currentParticle.show();
+
+      if (currentParticle.isTheage()){
+        particles.splice(i,1);
+        i--;
+       }
+    }
+
+     
   }
   
   class Walker{
@@ -141,20 +170,11 @@ function setup() {
   }
     function setBackground(colors){
       for (let y = 0; y < height; y++) {
-        //解释: colors.length - 1 is the last number of array
         let interColorIndex = map(y, 0, height, 0, colors.length - 1);
         let colorIndex = floor(interColorIndex);
-        /* floor() 函数将 interColorIndex 向下取整，
-        即舍去小数部分，得到一个整数索引 colorIndex。*/
         let inter = interColorIndex - colorIndex;
-        /*inter 是一个在 [0, 1] 范围内的小数，
-        用于表示当前行颜色在两个相邻颜色之间的渐变程度*/
 
-
-        //(under) Used to define the color transition range for the current row
         let startColor = colors[colorIndex];
-        /* (under) endColor is the next color, and 
-        never exceed the last index of the array */
         let endColor = colors[min(colorIndex + 1, colors.length - 1)];
         let c = lerpColor(startColor, endColor, inter);
 
@@ -166,20 +186,18 @@ function setup() {
 
 
   function drawVector(){
-    pos.add(vel);//necessary, renew the position
+    pos.add(vel);
   }
 
-  //flying strawberry head Img 1 (under)
   function drawImage(x, y){
     imageMode(CENTER);
     image (flyingimg, x, y, 200, 200)
   }
 
   function drawVector2(){
-    pos2.add(vel2);//necessary, renew the position
+    pos2.add(vel2);
   }
 
-  //flying strawberry head Img 1 (under)
   function drawImage(x, y){
     imageMode(CENTER);
     image (flyingimg, x, y, 200, 200)
@@ -192,3 +210,63 @@ function setup() {
         loop();
       }
     }*/
+      class Particle{
+        constructor(){
+          this.position = createVector(random(width), random(height));
+          this.velocity = createVector(random(2,-2), random(2,-2));
+          this.acceleration = createVector(random(-0.01,0.01), random(-0.01));
+          this.age = 0;
+          this.life = random(100, 700); 
+          this.angle = random(TWO_PI);
+          this.rotationSpeed = random(-0.05, 0.05);
+          this.size = random(40, 50); 
+          this.playSound = false;
+          //this.lastPlayTime = 0;
+          //this.playInterval = 1000;
+        }
+        update(){
+          this.position.add(this.velocity);
+          this.velocity.add(this.acceleration);
+          this.angle += this.rotationSpeed;
+          this.age++;
+        }
+        checkWalls(){
+          if (this.position.x > width || this.position.x < 0 || this.position.y > height || this.position.y < 0){
+            if (!this.playSound){
+              audio1.play();
+              this.playSound = true;
+            }
+          if (this.position.x > width){
+            this.position.x --;
+            this.velocity.x *= -2;
+          }
+          else if (this.position.x < 0){
+            this.position.x ++;
+            this.velocity.x *= -2;
+          }
+          if (this.position.y > height){
+            this.position.y --;
+            this.velocity.y *= -2;
+          }
+          else if (this.position.y < 0){
+            this.position.y ++;
+            this.velocity.y *= -2;
+          }
+        }
+        else{
+          this.playSound = false;
+        }
+      }
+        show(){
+          push();
+          translate(this.position.x, this.position.y);
+          rotate(this.angle);
+          imageMode(CENTER);
+          image(imgP,0,0, this.size, this.size);
+          noStroke();
+          pop();
+        }
+        isTheage(){
+          return this.age > this.life;
+        }
+      }
