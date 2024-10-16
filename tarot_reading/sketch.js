@@ -412,7 +412,7 @@ function cardCheck(label) {
     }
 
 if (describe === "Branch_1") {
-      window.location.href = 'https://julyanira.github.io/creative_code_Yishan/tarot_reading/branch_1';
+      window.location.href = 'https://editor.p5js.org/JulyAmy/full/d1W7Jca3C';
     } else if (describe === "Branch_2") {
       window.location.href = 'https://julyanira.github.io/creative_code_Yishan/tarot_reading/branch_2';
     }
