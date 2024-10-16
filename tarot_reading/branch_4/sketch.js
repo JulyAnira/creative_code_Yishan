@@ -77,7 +77,7 @@ function draw() {
 
 function mousePressed() {
     if (currentIndex >= textToDisplay.length) {
-        window.open("https://julyanira.github.io/creative_code_Yishan/tarot_reading/");
+        window.location.href = "..";
     }
 }
 
