@@ -28,7 +28,7 @@ nav a {
     text-decoration: none;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 6px rgba(118, 78, 93, 0.1);
-    color: #453981;
+    color: #fff598;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     background-color: rgba(182, 172, 213, 0.5); 
     border-radius: 5px; 
