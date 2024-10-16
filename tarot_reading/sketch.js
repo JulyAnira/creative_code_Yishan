@@ -412,7 +412,7 @@ function cardCheck(label) {
     }
 
 if (describe === "Branch_1") {
-      window.location.href = 'https://editor.p5js.org/JulyAmy/full/d1W7Jca3C';
+      window.location.href = 'branch_1';
     } else if (describe === "Branch_2") {
       window.location.href = 'branch_2';
     }
