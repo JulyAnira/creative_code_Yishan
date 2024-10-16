@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+canvas {
+    position: fixed;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; 
+ }
+ nav {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    position: absolute; 
+    top:1rem; 
+    right: 1rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    gap: 0.5rem; 
+    z-index: 10;
+}
+
+nav a {
+    font-family: "Expletus Sans", sans-serif;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(118, 78, 93, 0.1);
+    color: #453981;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    background-color: rgba(182, 172, 213, 0.5); 
+    border-radius: 5px; 
+    padding: 0.5rem 1rem; 
+    font-size: 1.2rem; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+nav a:hover, nav a:focus {
+    color: rgb(155, 95, 156);
+    text-shadow: 0 0 10px rgba(255, 186, 211, 0.6);
+}
