@@ -553,7 +553,7 @@ function gotResult(results) {
       imageFound = false;
       label = "none";
       state = "close";
-    }, 2000);
+    }, 5000);
   }
   let confidence = "Confidence: " + nf(results[0].confidence, 0, 2);
 }
