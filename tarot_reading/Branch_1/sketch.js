@@ -4,7 +4,7 @@ let currentIndex = 0;
 let typingSpeed = 50; 
 let img1;
 let audio; 
-let playButton; // 声明播放按钮
+let playButton; 
 
 function preload() {
   img1 = loadImage("bgpic.png");
@@ -15,22 +15,20 @@ function setup() {
   createCanvas(windowWidth, windowHeight);  
   frameRate(60);
   
-  // 创建播放按钮并设置位置
   playButton = createButton('Play Sound');
-  playButton.position(20, 20); // 设置为左上角
-  playButton.size(200, 50); // 设置按钮大小
-  playButton.style('font-family', 'Special Elite'); // 使用自定义字体
-  playButton.style('font-size', '24px'); // 设置字体大小
-  playButton.style('background-color', 'rgba(255, 255, 255, 0.5)'); // 半透明背景
-  playButton.style('border', '2px solid rgba(23, 12, 11, 0.7)'); // 设置边框颜色
-  playButton.mousePressed(startAudio); // 设置点击事件
+  playButton.position(20, 20); 
+  playButton.size(200, 50); 
+  playButton.style('font-family', 'Special Elite'); 
+  playButton.style('font-size', '24px'); 
+  playButton.style('background-color', 'rgba(255, 255, 255, 0.5)'); 
+  playButton.style('border', '2px solid rgba(23, 12, 11, 0.7)'); 
+  playButton.mousePressed(startAudio); 
 }
 
 function startAudio() {
-  // 请求音频上下文
   userStartAudio().then(() => {
-    audio.loop(); // 循环播放音频
-    playButton.hide(); // 隐藏按钮
+    audio.loop(); 
+    playButton.hide();
   });
 }
 

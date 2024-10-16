@@ -412,15 +412,15 @@ function cardCheck(label) {
     }
 
 if (describe === "Branch_1") {
-      window.location.href = 'https://editor.p5js.org/JulyAmy/full/d1W7Jca3C';
+      window.location.href = 'https://julyanira.github.io/creative_code_Yishan/tarot_reading/branch_1';
     } else if (describe === "Branch_2") {
-      window.location.href = 'https://editor.p5js.org/JulyAmy/full/jaD4fYvok';
+      window.location.href = 'https://julyanira.github.io/creative_code_Yishan/tarot_reading/branch_2';
     }
    else if (describe === "Branch_3") {
-      window.location.href = 'https://editor.p5js.org/JulyAmy/full/wa89J2e01';
+      window.location.href = 'https://julyanira.github.io/creative_code_Yishan/tarot_reading/branch_3';
     }
    else if (describe === "Branch_4") {
-      window.location.href = 'https://editor.p5js.org/JulyAmy/full/ecFZFBSlq';
+      window.location.href = 'https://julyanira.github.io/creative_code_Yishan/tarot_reading/branch_4';
     }
   } else {
     describe = "No description for this label";
