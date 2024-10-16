@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: "Special Elite", sans-serif;
+    background-color: #2c2a60; 
+    color: #ffffff; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(50, 50, 100, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: clamp(2rem, 2rem + 5vmin, 3rem);
+    text-align: center;
+    letter-spacing: 2px;
+    color: rgb(255, 153, 204);
+    margin-bottom: 1.5rem;
+}
+
+.character-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.character {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    width: 30%; 
+    margin: 1rem; 
+}
+
+.character-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 1.5rem + 2vmin, 2rem);
+    margin-top: 1rem;
+}
+
+p {
+    font-size: clamp(1rem, 1rem + 1vmin, 1.2rem);
+    line-height: 1.6;
+}
+
+.back-button {
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: rgba(182, 172, 213, 0.5);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(155, 95, 156, 0.6);
+}
